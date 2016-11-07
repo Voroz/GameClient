@@ -5,8 +5,9 @@
 
 using namespace std;
 
-struct Data {
-
+enum PacketType {
+	TPing = 0,
+	TId
 };
 
 int main() {
