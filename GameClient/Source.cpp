@@ -53,6 +53,9 @@ struct Client {
 				cout << endl;
 			}
 		}
+		else if (status == sf::Socket::Partial) {
+			cout << "Partial packet received..." << endl;
+		}
 		return status;
 	}
 
@@ -65,6 +68,7 @@ int main() {
 	sf::TcpSocket socket;
 	Client client(&socket);
 	client.connect(sf::IpAddress("127.0.0.1"), 53000);
+	socket.setBlocking(false);
 
 	sf::Packet packet;
 	packet << '0';
